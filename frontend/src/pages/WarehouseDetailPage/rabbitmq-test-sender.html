@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RabbitMQ Temperature Sender</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .subtitle {
+            color: #718096;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            color: #4a5568;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-send {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-random {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-random:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+        }
+
+        .btn-stop {
+            background: #f56565;
+            color: white;
+        }
+
+        .btn-stop:hover {
+            background: #e53e3e;
+            transform: translateY(-2px);
+        }
+
+        .log-container {
+            margin-top: 2rem;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .log-header h3 {
+            color: #2d3748;
+            font-size: 1.2rem;
+        }
+
+        .btn-clear {
+            padding: 6px 12px;
+            background: #cbd5e0;
+            color: #2d3748;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-clear:hover {
+            background: #a0aec0;
+        }
+
+        .log {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .log-entry {
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            border-left: 4px solid #667eea;
+            background: white;
+        }
+
+        .log-entry.success {
+            border-left-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .log-entry.error {
+            border-left-color: #f56565;
+            background: #fff5f5;
+        }
+
+        .log-time {
+            color: #718096;
+            font-size: 0.75rem;
+            margin-right: 8px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .status.active {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status.inactive {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .input-hint {
+            font-size: 0.8rem;
+            color: #a0aec0;
+            margin-top: 0.3rem;
+        }
+
+        .temp-display {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            text-align: center;
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐰 RabbitMQ Temperature Sender</h1>
+        <p class="subtitle">Send temperature readings to warehouse sectors</p>
+
+        <!-- Form -->
+        <div class="form-group">
+            <label for="warehouseId">Warehouse ID</label>
+            <input type="number" id="warehouseId" value="1" placeholder="Enter warehouse ID">
+            <div class="input-hint">ID magacina (npr. 1, 2, 3...)</div>
+        </div>
+
+        <div class="form-group">
+            <label for="sectorId">Sector ID</label>
+            <input type="number" id="sectorId" value="1" placeholder="Enter sector ID">
+            <div class="input-hint">ID sektora (npr. 1, 2, 3...)</div>
+        </div>
+
+        <div class="form-group">
+            <label for="temperature">Temperature (°C)</label>
+            <input type="number" id="temperature" value="22.5" step="0.1" placeholder="Enter temperature">
+            <div class="temp-display" id="tempDisplay">22.5°C</div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+            <button class="btn-send" onclick="sendTemperature()">📤 Send Once</button>
+            <button class="btn-random" id="autoBtn" onclick="toggleAutoSend()">🔄 Start Auto</button>
+        </div>
+
+        <div id="status" class="status inactive">Auto-send: Inactive</div>
+
+        <!-- Log -->
+        <div class="log-container">
+            <div class="log-header">
+                <h3>📋 Log</h3>
+                <button class="btn-clear" onclick="clearLog()">Clear</button>
+            </div>
+            <div class="log" id="log">
+                <div style="color: #a0aec0; text-align: center; padding: 2rem;">
+                    No messages sent yet. Click "Send Once" to start.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8080/api';
+        let autoSendInterval = null;
+        let isAutoSending = false;
+
+        // Update temperature display
+        document.getElementById('temperature').addEventListener('input', (e) => {
+            document.getElementById('tempDisplay').textContent = e.target.value + '°C';
+        });
+
+        // Send single temperature reading
+        async function sendTemperature() {
+            const warehouseId = document.getElementById('warehouseId').value;
+            const sectorId = document.getElementById('sectorId').value;
+            const temperature = parseFloat(document.getElementById('temperature').value);
+
+            if (!warehouseId || !sectorId || isNaN(temperature)) {
+                addLog('❌ Please fill in all fields', 'error');
+                return;
+            }
+
+            const payload = {
+                warehouseId: parseInt(warehouseId),
+                sectorId: parseInt(sectorId),
+                temperature: temperature,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/temperature`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    addLog(`✅ Sent: W${warehouseId}/S${sectorId} → ${temperature}°C`, 'success');
+                } else {
+                    addLog(`❌ Failed: ${response.status} ${response.statusText}`, 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Toggle auto-send
+        function toggleAutoSend() {
+            if (isAutoSending) {
+                stopAutoSend();
+            } else {
+                startAutoSend();
+            }
+        }
+
+        // Start auto-send with random temperatures
+        function startAutoSend() {
+            isAutoSending = true;
+            document.getElementById('autoBtn').textContent = '⏹️ Stop Auto';
+            document.getElementById('autoBtn').className = 'btn-stop';
+            document.getElementById('status').textContent = 'Auto-send: Active';
+            document.getElementById('status').className = 'status active';
+
+            autoSendInterval = setInterval(() => {
+                // Random temperature between 18-28°C
+                const randomTemp = (18 + Math.random() * 10).toFixed(1);
+                document.getElementById('temperature').value = randomTemp;
+                document.getElementById('tempDisplay').textContent = randomTemp + '°C';
+                sendTemperature();
+            }, 3000); // Every 3 seconds
+
+            addLog('🟢 Auto-send started (every 3s)', 'success');
+        }
+
+        // Stop auto-send
+        function stopAutoSend() {
+            isAutoSending = false;
+            clearInterval(autoSendInterval);
+            document.getElementById('autoBtn').textContent = '🔄 Start Auto';
+            document.getElementById('autoBtn').className = 'btn-random';
+            document.getElementById('status').textContent = 'Auto-send: Inactive';
+            document.getElementById('status').className = 'status inactive';
+            addLog('🔴 Auto-send stopped', 'error');
+        }
+
+        // Add log entry
+        function addLog(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            
+            // Remove placeholder if exists
+            if (logDiv.children.length === 1 && logDiv.children[0].style.color === 'rgb(160, 174, 192)') {
+                logDiv.innerHTML = '';
+            }
+
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            
+            const time = new Date().toLocaleTimeString();
+            entry.innerHTML = `<span class="log-time">[${time}]</span>${message}`;
+            
+            logDiv.insertBefore(entry, logDiv.firstChild);
+
+            // Keep only last 50 entries
+            while (logDiv.children.length > 50) {
+                logDiv.removeChild(logDiv.lastChild);
+            }
+        }
+
+        // Clear log
+        function clearLog() {
+            document.getElementById('log').innerHTML = `
+                <div style="color: #a0aec0; text-align: center; padding: 2rem;">
+                    No messages sent yet. Click "Send Once" to start.
+                </div>
+            `;
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (isAutoSending) {
+                stopAutoSend();
+            }
+        });
+    </script>
+</body>
+</html>

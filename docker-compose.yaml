@@ -1,0 +1,87 @@
+services:
+  nvt-postgres:
+    image: postgres:16
+    container_name: nvt-postgres
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: nvt_user
+      POSTGRES_PASSWORD: nvt_pass
+      POSTGRES_DB: nvt_db
+    networks:
+      - nvt-network
+
+  nvt-influxdb:
+    image: influxdb:2.7
+    container_name: nvt-influxdb
+    restart: unless-stopped
+    ports:
+      - "8086:8086"
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: nvt_user
+      DOCKER_INFLUXDB_INIT_PASSWORD: nvt_pass
+      DOCKER_INFLUXDB_INIT_ORG: nvt_org
+      DOCKER_INFLUXDB_INIT_BUCKET: nvt_bucket
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: nvt_token
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
+    networks:
+      - nvt-network
+
+  nvt-rabbitmq:
+    image: rabbitmq:3-management
+    container_name: nvt-rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: nvt_user
+      RABBITMQ_DEFAULT_PASS: nvt_password
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - nvt-network
+
+  nvt-redis:
+    image: redis:alpine
+    container_name: nvt-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass nvt_redis_pass
+    volumes:
+      - redis_data:/data
+    networks:
+      - nvt-network
+
+  nvt-nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    container_name: nvt-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./backend/uploads:/app/uploads:ro
+      - ./frontend/dist:/usr/share/nginx/html:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - nvt-network
+
+volumes:
+  postgres_data:
+  influxdb_data:
+  influxdb_config:
+  rabbitmq_data:
+  redis_data:
+  uploads_data:
+
+networks:
+  nvt-network:
+    driver: bridge

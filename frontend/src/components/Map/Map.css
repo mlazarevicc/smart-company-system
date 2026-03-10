@@ -1,0 +1,30 @@
+.map-container {
+  width: 100%;
+  height: 400px;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-popup {
+  text-align: center;
+}
+
+.map-popup strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+.map-popup p {
+  margin: 0.2rem 0;
+  color: #4a5568;
+  font-size: 0.9rem;
+}

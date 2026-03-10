@@ -1,0 +1,292 @@
+.create-product-container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .create-product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .create-product-header h1 {
+    color: #0A2540;
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .btn-back {
+    padding: 10px 20px;
+    background-color: white;
+    color: #526071;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-back:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+  }
+  
+  .create-product-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Elements */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #0A2540;
+    font-size: 0.95rem;
+  }
+  
+  .required {
+    color: #dc2626;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    font-family: inherit;
+  }
+  
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: #00A8E8;
+  }
+  
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* Multi-select for factories */
+  .form-select-multiple {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    background-color: white;
+    color: #526071;
+    font-family: inherit;
+  }
+
+  .form-select-multiple:focus {
+    outline: none;
+    border-color: #00A8E8;
+  }
+
+  .form-select-multiple option {
+    padding: 8px;
+  }
+
+  .form-select-multiple option:checked {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+
+  .form-hint {
+    display: block;
+    margin-top: 0.5rem;
+    color: #94a3b8;
+    font-size: 0.875rem;
+  }
+
+  
+  /* Image Upload */
+  .image-upload-area {
+    position: relative;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .image-upload-area:hover {
+    border-color: #00A8E8;
+    background-color: #f0f9ff;
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  .file-label {
+    cursor: pointer;
+    display: block;
+  }
+  
+  .upload-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .upload-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0A2540;
+    margin-bottom: 0.5rem;
+  }
+  
+  .upload-hint {
+    font-size: 0.875rem;
+    color: #94a3b8;
+  }
+  
+  .create-product-container .image-preview-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+  }
+  
+  .create-product-container .image-preview {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    display: block;
+  }
+  
+  .btn-remove-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-remove-image:hover {
+    background-color: #991b1b;
+  }
+  
+  /* Checkbox */
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .checkbox-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .checkbox-text {
+    font-size: 1rem;
+    color: #0A2540;
+    font-weight: 500;
+  }
+  
+  /* Form Actions */
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .btn-cancel,
+  .btn-submit {
+    flex: 1;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-cancel {
+    background-color: white;
+    color: #526071;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .btn-cancel:hover:not(:disabled) {
+    background-color: #f8fafc;
+  }
+  
+  .btn-submit {
+    background-color: #00A8E8;
+    color: white;
+  }
+  
+  .btn-submit:hover:not(:disabled) {
+    background-color: #0088c0;
+    transform: translateY(-2px);
+  }
+  
+  .btn-cancel:disabled,
+  .btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Error Message */
+  .error-message {
+    padding: 16px;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .create-product-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .form-actions {
+      flex-direction: column;
+    }
+  }
+  

@@ -1,0 +1,281 @@
+.vehicle-list-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .vehicle-list-container  .vehicle-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .vehicle-list-container  .vehicle-list-header h1 {
+    color: #0A2540;
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .vehicle-list-container  .btn-primary {
+    padding: 12px 24px;
+    background-color: #00A8E8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .vehicle-list-container  .btn-primary:hover {
+    background-color: #0088c0;
+    transform: translateY(-2px);
+  }
+  
+  /* Filters */
+  .vehicle-list-container  .filters-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .vehicle-list-container  .filter-group {
+    min-width: 0;
+  }
+  
+  .vehicle-list-container  .search-input,
+  .vehicle-list-container .filter-select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .vehicle-list-container  .search-input:focus,
+  .vehicle-list-container .filter-select:focus {
+    outline: none;
+    border-color: #00A8E8;
+  }
+  
+  /* Table */
+  .vehicle-list-container  .table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  
+  .vehicle-list-container  .vehicles-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .vehicle-list-container  .vehicles-table thead {
+    background-color: #f8fafc;
+  }
+  
+  .vehicle-list-container  .vehicles-table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #0A2540;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .vehicle-list-container  .vehicles-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .vehicle-list-container  .vehicles-table th.sortable:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .vehicle-list-container  .vehicles-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #526071;
+  }
+  
+  .vehicle-list-container  .vehicles-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  .vehicle-list-container  .vehicle-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .vehicle-list-container .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  
+  .vehicle-list-container  .status-badge.available {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .vehicle-list-container  .status-badge.unavailable {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  /* Actions */
+  .vehicle-list-container .actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: nowrap;   /* 🔥 prevents wrapping */
+  }
+  
+  .vehicle-list-container  .btn-view,
+  .btn-edit,
+  .btn-delete {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .vehicle-list-container  .btn-view {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+  
+  .vehicle-list-container .btn-view:hover {
+    background-color: #bae6fd;
+  }
+  
+  .vehicle-list-container .btn-edit {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .vehicle-list-container .btn-edit:hover {
+    background-color: #fde68a;
+  }
+  
+  .vehicle-list-container .btn-delete {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .vehicle-list-container  .btn-delete:hover {
+    background-color: #fecaca;
+  }
+  
+  /* Pagination */
+  .vehicle-list-container  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .vehicle-list-container  .pagination-btn {
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #526071;
+    transition: all 0.2s ease;
+  }
+  
+  .vehicle-list-container  .pagination-btn:hover:not(:disabled) {
+    background-color: #00A8E8;
+    color: white;
+    border-color: #00A8E8;
+  }
+  
+  .vehicle-list-container .pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .vehicle-list-container  .pagination-info {
+    font-weight: 600;
+    color: #526071;
+  }
+  
+  /* Loading & Error */
+  .vehicle-list-container .loading {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #526071;
+  }
+  
+  .vehicle-list-container  .error-message {
+    padding: 16px;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .vehicle-list-container .no-data {
+    text-align: center;
+    padding: 3rem !important;
+    color: #94a3b8;
+    font-size: 1.1rem;
+  }
+
+  .vehicle-list-status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.vehicle-list-online {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.vehicle-list-offline {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+  
+    .vehicle-list-container .table-container {
+      overflow-x: auto;
+    }
+  
+    .vehicle-list-container .vehicles-table {
+      min-width: 100px;
+    }
+  
+    .vehicle-list-container .actions {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .vehicle-list-container .filters-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .vehicle-list-container .filters-container {
+      grid-template-columns: 1fr;
+    }
+  }
+

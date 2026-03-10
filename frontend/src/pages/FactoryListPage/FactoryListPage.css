@@ -1,0 +1,318 @@
+.factory-list-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.factory-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.factory-list-header h1 {
+  color: #0a2540;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.factory-list-btn-primary {
+  padding: 12px 28px;
+  background-color: #0ba5c8 !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.factory-list-btn-primary:hover {
+  background-color: #0988a5 !important;
+  transform: translateY(-2px);
+}
+
+/* Filters */
+.factory-list-filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.factory-list-filter-group-full {
+  width: 100%;
+}
+
+.factory-list-filter-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1.5fr auto;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+/* Inputs */
+.factory-list-search-input,
+.factory-list-filter-select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background-color: #ffffff;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+.factory-list-search-input:focus,
+.factory-list-filter-select:focus {
+  outline: none;
+  border-color: #00a8e8;
+  box-shadow: 0 0 0 1px rgba(0, 168, 232, 0.15);
+}
+
+/* Table */
+.factory-list-table-responsive {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.factory-list-factory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.factory-list-factory-table thead {
+  background-color: #f8fafc;
+}
+
+.factory-list-factory-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #0a2540;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.factory-list-factory-table td {
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #526071;
+}
+
+.factory-list-factory-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.factory-list-empty-message {
+  text-align: center;
+  padding: 2rem !important;
+  color: #94a3b8;
+}
+
+/* Status badge */
+.factory-list-status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.factory-list-online {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.factory-list-offline {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Actions */
+.factory-list-action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.factory-list-btn-view,
+.factory-list-btn-edit,
+.factory-list-btn-delete {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.factory-list-btn-view {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.factory-list-btn-edit {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.factory-list-btn-delete {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Pagination */
+.factory-list-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.factory-list-pagination-btn {
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #526071;
+  transition: all 0.2s ease;
+}
+
+.factory-list-pagination-btn:hover:not(:disabled) {
+  background-color: #00a8e8;
+  color: white;
+  border-color: #00a8e8;
+}
+
+.factory-list-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.factory-list-pagination-info {
+  font-weight: 600;
+  color: #526071;
+}
+
+.factory-list-loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: #526071;
+}
+
+.factory-list-error-message {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fee2e2;
+  color: #991b1b;
+  margin-bottom: 1rem;
+}
+
+.factory-list-sortable-header {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.factory-list-sortable-header:hover {
+  background-color: #f1f5f9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .factory-list-filter-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .factory-list-table-responsive {
+    overflow-x: auto;
+  }
+  .factory-list-factory-table {
+    min-width: 800px;
+  }
+}
+
+@media (max-width: 640px) {
+  .factory-list-filter-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ažuriraj grid da ima 4 kolone (kao kod proizvoda) */
+.factory-list-filter-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Ravnomerna raspodela */
+  gap: 1rem;
+  align-items: center; /* Poravnanje po sredini zbog checkbox-a */
+}
+
+/* Stil za "Online Only" container */
+.factory-list-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  user-select: none;
+  height: 42px; /* Da bi se slagalo sa visinom select polja */
+  box-sizing: border-box;
+}
+
+.factory-list-toggle:hover {
+  background: #e2e8f0;
+}
+
+/* Sakrivamo default checkbox a pravimo lepši vizuelni indikator */
+.factory-list-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #00a8e8; /* Boja koja se slaže sa primarnim dugmetom */
+}
+
+.factory-list-toggle-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b; /* Tamniji tekst za bolji kontrast */
+}
+
+/* Ako je checkbox čekiran, promeni pozadinu celog polja */
+.factory-list-toggle:has(input:checked) {
+  background: #e0f2fe;
+  border-color: #00a8e8;
+}
+
+.factory-list-toggle:has(input:checked) .factory-list-toggle-text {
+  color: #0369a1;
+}
+
+/* Responzivnost za manje ekrane */
+@media (max-width: 1024px) {
+  .factory-list-filter-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .factory-list-filter-row {
+    grid-template-columns: 1fr;
+  }
+}

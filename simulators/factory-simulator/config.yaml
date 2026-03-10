@@ -1,0 +1,25 @@
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: nvt_user
+  password: nvt_password
+  exchange: smart-manufacturing.factories
+  production_queue: factory-production-updates
+  heartbeat_queue: factory-heartbeat
+
+factory:
+  id: 2
+  name: "Belgrade Beverage Plant"
+  products:
+    - product_id: 9
+      min_quantity: 500
+      max_quantity: 2000
+    - product_id: 2
+      min_quantity: 500
+      max_quantity: 2000
+
+simulation:
+  heartbeat_interval: 30s
+  production_times:
+    - "12:00"
+    - "00:00"

@@ -1,0 +1,305 @@
+.availability-dashboard {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    border: 1px solid #e2e8f0;
+    margin-top: 1.5rem;
+  }
+  
+  .availability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .status-indicator h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #0f172a;
+  }
+  
+  .status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .status-dot.connected {
+    background-color: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  }
+  
+  .status-dot.disconnected {
+    background-color: #ef4444;
+  }
+  
+  .btn-refresh {
+    padding: 0.5rem 1rem;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    color: #334155;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-refresh:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat-card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  
+  .text-green { color: #10b981; }
+  .text-red { color: #ef4444; }
+  .text-small { font-size: 1rem; }
+  
+  .charts-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+  }
+  
+  .chart-box {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .chart-box h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #334155;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .no-data-msg {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-style: italic;
+  }
+  
+  .availability-loading, .availability-error {
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px;
+    background-color: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    color: #64748b;
+  }
+  
+  .availability-error {
+    color: #ef4444;
+    border-color: #fca5a5;
+    background-color: #fef2f2;
+  }
+  
+  @media (max-width: 1024px) {
+    .charts-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* --- DODATAK ZA ZAHTEV 5.13 (Periodi i Validacija) --- */
+
+.fad-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.fad-select {
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 0.9rem;
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.fad-select:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.fad-custom-date-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f8fafc;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.fad-date-input {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  color: #475569;
+  font-size: 0.85rem;
+  outline: none;
+  background: white;
+}
+
+.fad-error-msg {
+  color: #dc2626;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #fef2f2;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+  margin-bottom: 1.5rem;
+}
+
+.fad-loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.no-data-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* --- KARTICE SA STATISTIKOM (4 u redu) --- */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Forsiramo 4 kolone jednake širine */
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 1.5rem; /* Malo veći font za brojke */
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.text-green { color: #10b981; }
+.text-red { color: #ef4444; }
+.text-small { font-size: 1.15rem; color: #334155; }
+
+
+/* --- GRAFICI (Poredjani jedan pored drugog) --- */
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Pie chart dobija 1/3, Area/Bar chart dobija 2/3 prostora */
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.chart-box {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.chart-box h4 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+/* --- RESPONSIVE DIZAJN (Za manje ekrane) --- */
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 raspored na tabletima */
+  }
+  
+  .charts-container {
+    grid-template-columns: 1fr; /* Grafici idu jedan ispod drugog na manjim ekranima */
+  }
+}
+
+@media (max-width: 640px) {
+  .metrics-grid {
+    grid-template-columns: 1fr; /* Na telefonima sve jedno ispod drugog */
+  }
+}

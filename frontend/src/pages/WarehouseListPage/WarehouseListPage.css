@@ -1,0 +1,510 @@
+.warehouse-list-page {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.warehouse-list-page .warehouse-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.warehouse-list-page .warehouse-list-header h1 {
+  color: #0A2540;
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.warehouse-list-page .btn-add-new {
+  padding: 12px 28px;
+  background-color: #0ba5c8 !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.warehouse-list-page .btn-add-new:hover {
+  background-color: #0788bf !important;
+  transform: translateY(-2px);
+}
+
+/* Filters Container - Proper Grid Layout */
+.warehouse-list-page .filters-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.warehouse-list-page .filter-group {
+  min-width: 0;
+}
+
+/* Search Form - Inline layout */
+.warehouse-list-page .search-form {
+  display: border-box;
+  width: 100%;
+  height: 48px;
+}
+
+.warehouse-list-page .search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: white;
+  color: #0A2540;
+  transition: border-color 0.2s ease;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.warehouse-list-page .search-input::placeholder {
+  color: #94a3b8;
+}
+
+.warehouse-list-page .search-input:focus {
+  outline: none;
+  border-color: #00A8E8;
+  box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
+}
+
+/* Select Dropdowns */
+.warehouse-list-page .filter-select {
+  width: 100%;
+  height: 48px;
+  padding: 12px 16px;
+  padding-right: 40px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: white;
+  color: #0A2540;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230A2540' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.warehouse-list-page .filter-select:focus {
+  outline: none;
+  border-color: #00A8E8;
+  box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
+}
+
+.warehouse-list-page .filter-select:hover {
+  border-color: #cbd5e1;
+}
+
+/* Active Filters */
+.warehouse-list-page .active-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.warehouse-list-page .active-filters-label {
+  font-weight: 600;
+  color: #526071;
+  font-size: 0.9rem;
+}
+
+.warehouse-list-page .filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 12px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.warehouse-list-page .filter-tag button {
+  background: none;
+  border: none;
+  color: #0369a1;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.warehouse-list-page .filter-tag button:hover {
+  transform: scale(1.2);
+}
+
+.warehouse-list-page .clear-filters {
+  padding: 6px 14px;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.warehouse-list-page .clear-filters:hover {
+  background-color: #fecaca;
+}
+
+/* Results Info */
+.warehouse-list-page .results-info {
+  margin-bottom: 1.5rem;
+  color: #526071;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+/* Warehouse Grid */
+.warehouse-list-page .warehouse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Warehouse Card */
+.warehouse-list-page .warehouse-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.warehouse-list-page .warehouse-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Warehouse Image */
+.warehouse-list-page .warehouse-image {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+.warehouse-list-page .warehouse-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.warehouse-list-page .warehouse-card:hover .warehouse-image img {
+  transform: scale(1.05);
+}
+
+.warehouse-list-page .status-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.warehouse-list-page .status-badge.online {
+  background-color: rgba(209, 250, 229, 0.95);
+  color: #065f46;
+  border: 1px solid #059669;
+}
+
+.warehouse-list-page .status-badge.offline {
+  background-color: rgba(254, 226, 226, 0.95);
+  color: #991b1b;
+  border: 1px solid #dc2626;
+}
+
+/* Warehouse Info */
+.warehouse-list-page .warehouse-info {
+  padding: 1rem;
+  flex: 1;
+}
+
+.warehouse-list-page .warehouse-info h3 {
+  color: #0A2540;
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.warehouse-list-page .warehouse-info p {
+  margin: 0.4rem 0;
+  color: #526071;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.warehouse-list-page .warehouse-info .icon {
+  font-size: 0.9rem;
+}
+
+.warehouse-list-page .warehouse-info .location {
+  font-weight: 600;
+  color: #0A2540;
+}
+
+.warehouse-list-page .warehouse-info .address {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.warehouse-list-page .warehouse-info .sectors {
+  margin-top: 0.6rem;
+  padding: 6px 10px;
+  background-color: #f1f5f9;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.85rem;
+}
+
+/* Warehouse Actions */
+.warehouse-list-page .warehouse-actions {
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.warehouse-list-page .btn-view,
+.warehouse-list-page .btn-edit,
+.warehouse-list-page .btn-delete {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.warehouse-list-page .btn-view {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.warehouse-list-page .btn-view:hover {
+  background-color: #bae6fd;
+  transform: translateY(-1px);
+}
+
+.warehouse-list-page .btn-edit {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.warehouse-list-page .btn-edit:hover {
+  background-color: #fde68a;
+  transform: translateY(-1px);
+}
+
+.warehouse-list-page .btn-delete {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.warehouse-list-page .btn-delete:hover {
+  background-color: #fecaca;
+  transform: translateY(-1px);
+}
+
+/* Pagination */
+.warehouse-list-page .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.warehouse-list-page .pagination button {
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #526071;
+  transition: all 0.2s ease;
+}
+
+.warehouse-list-page .pagination button:hover:not(:disabled) {
+  background-color: #00A8E8;
+  color: white;
+  border-color: #00A8E8;
+}
+
+.warehouse-list-page .pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f8fafc;
+}
+
+.warehouse-list-page .pagination span {
+  font-weight: 600;
+  color: #526071;
+  padding: 0 1rem;
+}
+
+/* Loading */
+.warehouse-list-page .loading {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 1.1rem;
+  color: #526071;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.warehouse-list-page .error-message {
+  padding: 1.5rem;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #fca5a5;
+  margin-bottom: 1.5rem;
+}
+
+/* Empty State */
+.warehouse-list-page .no-data {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #94a3b8;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.warehouse-list-page .no-data h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #526071;
+}
+
+.warehouse-list-page .no-data p {
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .warehouse-list-page .filters-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .warehouse-list-page .warehouse-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .warehouse-list-page {
+    padding: 1rem;
+  }
+
+  .warehouse-list-page .warehouse-list-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .warehouse-list-page .warehouse-list-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .warehouse-list-page .btn-add-new {
+    width: 100%;
+  }
+
+  .warehouse-list-page .filters-container {
+    grid-template-columns: 1fr;
+  }
+
+  .warehouse-list-page .warehouse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .warehouse-list-page .warehouse-actions {
+    flex-direction: column;
+  }
+
+  .warehouse-list-page .warehouse-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .warehouse-list-page .warehouse-image {
+    height: 140px;
+  }
+
+  .warehouse-list-page .warehouse-info {
+    padding: 0.75rem;
+  }
+
+  .warehouse-list-page .warehouse-info h3 {
+    font-size: 1rem;
+  }
+  
+  .warehouse-list-page .search-form {
+    flex-direction: column;
+    height: auto;
+    gap: 0.5rem;
+  }
+  
+  .warehouse-list-page .search-input {
+    height: 48px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,28 @@
+rabbitmq:
+  host: "localhost"
+  port: 5672
+  username: "nvt_user"
+  password: "nvt_password"
+  exchange: "smart-manufacturing.warehouses"
+  temperature_queue: "warehouse-temperature-updates"
+  heartbeat_queue: "warehouse-heartbeat"
+
+backend:
+  api_url: "http://localhost:8080/api"
+  load_warehouses: true
+  auth_token: ""
+
+simulation:
+  heartbeat_interval: 30s
+  temperature_interval: 10m
+
+warehouse:
+  id: 11
+  name: "Barcelona Storage Hub"
+  sectors:
+    - sector_id: 32
+      base_temp: 22.0
+      max_variance: 2.0
+    - sector_id: 33
+      base_temp: 4.0
+      max_variance: 1.5

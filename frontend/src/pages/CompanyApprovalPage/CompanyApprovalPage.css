@@ -1,0 +1,364 @@
+.company-list-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .company-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .company-list-header h1 {
+    color: #0a2540;
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .btn-primary {
+    padding: 12px 24px;
+    background-color: #00a8e8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0088c0;
+    transform: translateY(-2px);
+  }
+  
+
+  /* Filters */
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-group-full {
+  width: 100%;
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1.5fr auto;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.filter-group-company {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+/* Inputs */
+
+.search-input,
+.filter-select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background-color: #ffffff;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+}
+
+.search-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #00a8e8;
+  box-shadow: 0 0 0 1px rgba(0, 168, 232, 0.15);
+}
+
+/* Toggle */
+
+.filter-group-inline {
+  align-items: flex-start;
+}
+
+.toggle-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+/* Clear filters */
+
+.filter-actions {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.filter-clear-btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.filter-clear-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+  /* Table */
+  .table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  
+  .companies-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .companies-table thead {
+    background-color: #f8fafc;
+  }
+  
+  .companies-table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #0a2540;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .companies-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #526071;
+  }
+  
+  .companies-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  .no-data {
+    text-align: center;
+    padding: 2rem !important;
+    color: #94a3b8;
+  }
+  
+  /* Status badge */
+  .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  .status-badge.online {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .status-badge.offline {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  /* Actions */
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .btn-view,
+  .btn-approve,
+  .btn-reject,
+  .btn-analytics-placeholder {
+    flex: 1;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-view {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+  
+  .btn-view:hover {
+    background-color: #bae6fd;
+  }
+  
+  .btn-reject {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .btn-reject:hover {
+    background-color: #fecaca;
+  }
+
+  .btn-approve {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .btn-approve:hover {
+    background-color: #9dfdcb;
+  }
+  
+  .btn-analytics-placeholder {
+    background-color: #f1f5f9;
+    color: #64748b;
+    cursor: not-allowed;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .pagination-btn {
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #526071;
+    transition: all 0.2s ease;
+  }
+  
+  .pagination-btn:hover:not(:disabled) {
+    background-color: #00a8e8;
+    color: white;
+    border-color: #00a8e8;
+  }
+  
+  .pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination-info {
+    font-weight: 600;
+    color: #526071;
+  }
+  
+  /* Analytics placeholder */
+  .companies-analytics-placeholder {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px dashed #cbd5e1;
+    background-color: #f8fafc;
+    color: #64748b;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.1rem;
+    color: #526071;
+  }
+  
+  .error-message {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #fee2e2;
+    color: #991b1b;
+    margin-bottom: 1rem;
+  }
+
+  .product-list-container .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  
+  .product-list-container  .status-badge.approved {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .product-list-container  .status-badge.pending {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .company-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .filters-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .table-container {
+      overflow-x: auto;
+    }
+  
+    .companies-table {
+      min-width: 900px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .filter-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .filter-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .filter-actions {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }

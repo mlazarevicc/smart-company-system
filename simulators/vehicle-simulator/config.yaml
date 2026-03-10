@@ -1,0 +1,21 @@
+rabbitmq:
+  host: "localhost"
+  port: 5672
+  username: "nvt_user"
+  password: "nvt_password"
+  exchange: "smart-manufacturing.vehicles"
+  distance_queue: "vehicle-distance-updates"
+  heartbeat_queue: "vehicle-heartbeat"
+
+backend:
+  api_url: "http://localhost:8080/api"
+  load_vehicles: true
+  auth_token: ""
+
+simulation:
+  heartbeat_interval: 30s
+  distance_interval: 10s
+
+vehicles:
+  - id: 1
+    registration_number: "NS-102-AB"

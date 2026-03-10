@@ -1,0 +1,335 @@
+.factory-form-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.factory-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.factory-form-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #0a2540;
+}
+
+.btn-back {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #526071;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background-color: #e2e8f0;
+}
+
+.factory-form-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+}
+
+/* Form basics */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.form-input,
+.form-select,
+.form-select-multiple {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+  color: #0f172a;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-select-multiple:focus {
+  outline: none;
+  border-color: #00a8e8;
+  box-shadow: 0 0 0 1px rgba(0, 168, 232, 0.3);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-select-multiple {
+  min-height: 120px;
+}
+
+.form-select-multiple option {
+  padding: 6px 4px;
+}
+
+.form-hint {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn-cancel,
+.btn-submit {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel {
+  background-color: white;
+  border-color: #e2e8f0;
+  color: #526071;
+}
+
+.btn-cancel:hover {
+  background-color: #e2e8f0;
+}
+
+.btn-submit {
+  background-color: #00a8e8;
+  color: white;
+}
+
+.btn-submit:hover {
+  background-color: #0088c0;
+}
+
+/* States */
+.error-message {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fee2e2;
+  color: #991b1b;
+  margin-bottom: 1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: #526071;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image-upload-area {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #f8fafc;
+  position: relative;
+}
+
+.image-upload-area.secondary {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.file-label.small {
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.upload-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.upload-text {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.upload-hint {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.multi-image-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.image-preview-wrapper {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.image-preview {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.btn-remove-image {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  border-radius: 999px;
+  background-color: rgba(15, 23, 42, 0.7);
+  color: white;
+  width: 24px;
+  height: 24px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.location-group {
+  position: relative;
+  z-index: 30;
+}
+
+.map-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+
+.location-input-wrapper {
+  position: relative;
+}
+
+.location-input {
+  padding-right: 40px;
+}
+
+.location-spinner {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.location-dropdown {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  border: 1px solid #e2e8f0;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.location-dropdown.empty {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.location-option {
+  width: 100%;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.location-option:hover {
+  background-color: #f1f5f9;
+}
+
+.location-main {
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.location-sub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+.geocode-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.geocode-values {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.geocode-info {
+  margin-top: 0.25rem;
+}

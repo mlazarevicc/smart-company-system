@@ -1,0 +1,76 @@
+.home-container {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-section h1 {
+    color: #0A2540;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero-section p {
+    color: #526071;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+/* Dugmići */
+.primary-btn {
+    background-color: #005F73;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.primary-btn:hover {
+    background-color: #0a9396;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #005F73;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: 1px solid #005F73;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Donja sekcija sa informacijama */
+.content-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    text-align: left;
+    margin-top: 60px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 60px;
+}
+
+.info-card h2 {
+    color: #0A2540;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: #64748b;
+    line-height: 1.5;
+}

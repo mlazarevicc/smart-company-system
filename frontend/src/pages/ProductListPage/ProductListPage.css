@@ -1,0 +1,321 @@
+.product-list-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .product-list-container  .product-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .product-list-container  .product-list-header h1 {
+    color: #0A2540;
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .product-list-container  .btn-primary {
+    padding: 12px 24px;
+    background-color: #00A8E8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .product-list-container  .btn-primary:hover {
+    background-color: #0088c0;
+    transform: translateY(-2px);
+  }
+  
+  /* Filters */
+  .product-list-container  .filters-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .product-list-container  .filter-group {
+    min-width: 0;
+  }
+  
+  .product-list-container  .search-input,
+  .product-list-container .filter-select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .product-list-container  .search-input:focus,
+  .product-list-container .filter-select:focus {
+    outline: none;
+    border-color: #00A8E8;
+  }
+  
+  /* Table */
+  .product-list-container  .table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  
+  .product-list-container  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .product-list-container  .products-table thead {
+    background-color: #f8fafc;
+  }
+  
+  .product-list-container  .products-table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #0A2540;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .product-list-container  .products-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .product-list-container  .products-table th.sortable:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .product-list-container  .products-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #526071;
+  }
+  
+  .product-list-container  .products-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  .product-list-container  .product-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .product-list-container .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  
+  .product-list-container  .status-badge.available {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .product-list-container  .status-badge.unavailable {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  /* Actions */
+  .product-list-container .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .product-list-container  .btn-view,
+  .btn-edit,
+  .btn-delete {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .product-list-container  .btn-view {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+  
+  .product-list-container .btn-view:hover {
+    background-color: #bae6fd;
+  }
+  
+  .product-list-container .btn-edit {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .product-list-container .btn-edit:hover {
+    background-color: #fde68a;
+  }
+  
+  .product-list-container .btn-delete {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .product-list-container  .btn-delete:hover {
+    background-color: #fecaca;
+  }
+  
+  /* Pagination */
+  .product-list-container  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .product-list-container  .pagination-btn {
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #526071;
+    transition: all 0.2s ease;
+  }
+  
+  .product-list-container  .pagination-btn:hover:not(:disabled) {
+    background-color: #00A8E8;
+    color: white;
+    border-color: #00A8E8;
+  }
+  
+  .product-list-container .pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .product-list-container  .pagination-info {
+    font-weight: 600;
+    color: #526071;
+  }
+  
+  /* Loading & Error */
+  .product-list-container .loading {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #526071;
+  }
+  
+  .product-list-container  .error-message {
+    padding: 16px;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .product-list-container .no-data {
+    text-align: center;
+    padding: 3rem !important;
+    color: #94a3b8;
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+  
+    .product-list-container .table-container {
+      overflow-x: auto;
+    }
+  
+    .product-list-container .products-table {
+      min-width: 100px;
+    }
+  
+    .product-list-container .actions {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .product-list-container .filters-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .product-list-container .filters-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+
+  /* --- Glavno dugme za dodavanje (kao u Warehouse) --- */
+.product-list-container .btn-add-new {
+  padding: 12px 28px;
+  background-color: #0ba5c8 !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.product-list-container .btn-add-new:hover {
+  background-color: #0988a5 !important;
+  transform: translateY(-2px);
+}
+
+/* --- Akciona dugmad u tabeli (kao u Factory) --- */
+.product-list-container .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.product-list-container .btn-view,
+.product-list-container .btn-edit,
+.product-list-container .btn-delete {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.product-list-container .btn-view {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.product-list-container .btn-edit {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.product-list-container .btn-delete {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Opciono: blagi hover efekat za bolji osećaj pri prelasku mišem */
+.product-list-container .btn-view:hover { background-color: #bae6fd; }
+.product-list-container .btn-edit:hover { background-color: #fde68a; }
+.product-list-container .btn-delete:hover { background-color: #fecaca; }
