@@ -56,50 +56,80 @@ The ecosystem is built using a modern, scalable microservices-oriented architect
 
 ## 🚀 Getting Started
 
+Follow this exact sequence to ensure the distributed system initializes correctly.
+
 ### Prerequisites
-* Docker & Docker Compose
-* Java 17+ (for Spring Boot)
-* Node.js & npm (for React)
-* Go 1.20+ (for Simulators)
-* Python 3.9+ (for Data Generator & Locust)
+* **Docker & Docker Compose**
+* **Java 17+** (Backend)
+* **Node.js & npm** (Frontend)
+* **Go 1.20+** (Simulators)
+* **Python 3.9+** (Data Generation & Seeding)
 
 ### 1. Launch Infrastructure
-Start the required databases and message broker using Docker:
+Start the core ecosystem (PostgreSQL, InfluxDB, Redis, RabbitMQ, Nginx):
 ```bash
 docker compose up -d
 
 ```
 
-*(This spins up PostgreSQL, InfluxDB, Redis, RabbitMQ, and Nginx).*
-
 ### 2. Start the Backend (Spring Boot)
 
-Navigate to the backend directory and run the application:
+The backend must be running before seeding data to ensure database schemas are initialized:
 
 ```bash
+cd backend
 ./mvnw spring-boot:run
 
 ```
 
-### 3. Start the Frontend (React)
+### 3. Initialize Data & Seeding
 
-Navigate to the frontend directory, install dependencies, and start the development server:
+Once the backend is healthy, populate the system with initial states and telemetry:
+
+**A. Generate Base Data (All Students):**
 
 ```bash
-npm install
-npm start
+pip install -r tests/requirements.txt
+python tests/generate_data.py   # Student 1
+python tests/generate_data2.py  # Student 2
+python tests/generate_data3.py  # Student 3
 
 ```
 
-### 4. Run IoT Simulators & Data Generators
+**B. Run Specific Seeders:**
 
 ```bash
-# Generate initial test data
-python tests/generate_data.py
+# Student 1: InfluxDB Telemetry
 python tests/influx_seed.py
 
-# Run a Go simulator (e.g., Factory Simulator)
-go run cmd/factory_simulator/main.go --config config/factory_A.json
+# Student 2: Warehouse Seeder (Go)
+cd simulators/warehouse-simulator && go run cmd/seeder/main.go
+
+# Student 3: Vehicle Seeder (Go)
+cd ../vehicle-simulator && go run cmd/seeder/main.go
+
+```
+
+### 4. Start the Frontend (React)
+
+Launch the dashboard interface:
+
+```bash
+cd frontend
+npm install
+npm run dev
+
+```
+
+### 5. Start IoT Simulators (Go)
+
+Finally, start the real-time telemetry streams:
+
+```bash
+# Run each in a separate terminal or as background processes
+go run simulators/factory-simulator/cmd/simulator/main.go
+go run simulators/warehouse-simulator/cmd/simulator/main.go
+go run simulators/vehicle-simulator/cmd/simulator/main.go
 
 ```
 
